@@ -3,7 +3,7 @@ import bech32
 
 def bech32_converter(string: str) -> str:
     """Converts a given string to bech32 format."""
-    hrp = "bc" # Human-readable part for Bitcoin addresses
+    hrp = "thor" # Human-readable part for rune addresses
     data = bytes(string.encode())
     return bech32.encode(hrp, bech32.convertbits(data, 8, 5))
 
