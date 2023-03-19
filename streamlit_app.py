@@ -54,4 +54,8 @@ input_bech32 = st.text_input("Enter a Bech32 string:", value="", max_chars=None,
 if input_bech32 != "":
     try:
         hrp, data = bech32_decode(input_bech32)
-       
+    except ValueError as e:
+        st.error(str(e))
+else:
+    output = bech32_encode(hrp, data)
+    st.success(output)
