@@ -4,11 +4,10 @@ import bech32
 
 
 def main():
-    st.title("Bech32 Converter")
-    string = st.text_input("Enter a string to convert:")
-    hrp = "thor" # Human-readable part for rune addresses
-    data = bytes(string.encode())
+    hrp = "bc"
+    data = bytes("Hello, world!".encode())
     witprog = bech32.convertbits(data, 8, 5)
+    
     out = bech32.encode(hrp, witprog)
     if st.button("Convert"):
         try:
