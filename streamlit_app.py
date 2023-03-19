@@ -15,6 +15,7 @@ def bech32_encode(hrp: str, data: bytes) -> str:
     # Convert data and checksum to Bech32 string
     return hrp + BECH32_SEPARATOR + ''.join([BECH32_CHARSET[d] for d in values + [checksum]])
 
+# Bech32 decoding algorithm
 def bech32_decode(bech: str) -> Tuple[str, bytes]:
     if not all(x in BECH32_CHARSET for x in bech):
         raise ValueError("Invalid characters in Bech32 string")
@@ -30,10 +31,12 @@ def bech32_decode(bech: str) -> Tuple[str, bytes]:
         raise ValueError("Invalid Bech32 checksum")
     return hrp, data[:-6]
 
+# Verify Bech32 checksum
 def bech32_verify_checksum(hrp: str, data: bytes) -> bool:
     values = [ord(x) & 31 for x in hrp] + [0] + [x for x in data]
     return bech32_polymod(values) == 1
 
+# Polynomial division algorithm used in Bech32 checksum calculation
 def bech32_polymod(values: list) -> int:
     generator = [0x3b6a57b2, 0x26508e6d, 0x1ea119fa, 0x3d4233dd, 0x2a1462b3]
     chk = 1
@@ -47,6 +50,7 @@ def bech32_polymod(values: list) -> int:
 # User input prompt
 input_bech32 = st.text_input("Enter a Bech32 string:", value="", max_chars=None, key=None, type='default')
 
+# Bech32 conversion and output
 if input_bech32 != "":
     try:
         hrp, data = bech32_decode(input_bech32)
