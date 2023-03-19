@@ -1,11 +1,18 @@
 import streamlit as st
 import bech32
+import bech32
+
+hrp = "bc"
+data = bytes("Hello, world!".encode())
+witprog = bech32.convertbits(data, 8, 5)
+bech32.encode(hrp, witprog)
 
 def bech32_converter(string: str) -> str:
     """Converts a given string to bech32 format."""
     hrp = "thor" # Human-readable part for rune addresses
     data = bytes(string.encode())
-    return bech32.encode(hrp, bech32.convertbits(data, 8, 5))
+    witprog = bech32.convertbits(data, 8, 5)
+    return bech32.encode(hrp, witprog)
 
 def main():
     st.title("Bech32 Converter")
