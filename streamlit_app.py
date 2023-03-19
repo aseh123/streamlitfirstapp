@@ -2,10 +2,6 @@ import streamlit as st
 import bech32
 import bech32
 
-hrp = "bc"
-data = bytes("Hello, world!".encode())
-witprog = bech32.convertbits(data, 8, 5)
-bech32.encode(hrp, witprog)
 
 def bech32_converter(string: str) -> str:
     """Converts a given string to bech32 format."""
