@@ -1,6 +1,5 @@
 import streamlit as st
 import bech32
-import bech32
 
 
 def bech32_converter(string: str) -> str:
