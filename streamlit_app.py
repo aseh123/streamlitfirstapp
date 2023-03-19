@@ -1,10 +1,13 @@
 import streamlit as st
+import requests
 
 # Define a title for your app
-st.title("Welcome to my Streamlit App")
+st.title("Current Bitcoin Price")
 
-# Add a slider widget for the user to select a value
-user_input = st.slider("Select a value", 0, 100, 50)
+# Fetch the current price of BTC from the CoinGecko API
+response = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd")
+data = response.json()
+btc_price = data["bitcoin"]["usd"]
 
-# Add a 
-st.write(f"You selected: {user_input}")
+# Display the current price of BTC
+st.write(f"The current price of Bitcoin is ${btc_price}")
