@@ -23,6 +23,7 @@ def app():
     if response.status_code == 200:
         # Parse the JSON response
         data = response.json()
+        st.write(f"Response data: {data}")
         # Extract the cacao deposit value from the data
         cacao_deposit_value = data["cacao_deposit_value"]
         # Display the cacao deposit value to the user
