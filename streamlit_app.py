@@ -11,7 +11,7 @@ def app():
     st.header("Cacao Deposit Value Extractor")
 
     # Get the user input
-    user_input = st.text_input("Enter the user input string:", value="maya1ry8gr7clqyvrvsk7m53ak09yc7pcewpgx4r2uv")
+    user_input = st.text_input("Enter the user input string:")
 
     # Define the API endpoint with the user input
     endpoint = url + user_input
