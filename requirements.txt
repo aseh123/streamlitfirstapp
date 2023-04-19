@@ -1,2 +1,2 @@
 streamlit
-bech32
+requests
