@@ -25,7 +25,7 @@ def app():
         data = response.json()
         st.write(f"Response data: {data}")
         # Extract the cacao deposit value from the data
-        cacao_deposit_value = data["cacao_deposit_value"]
+        cacao_deposit_value = data["liquidity_provider"]["cacao_deposit_value"]
         # Display the cacao deposit value to the user
         st.write(f"The cacao deposit value is: {cacao_deposit_value}")
     else:
