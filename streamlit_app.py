@@ -2,9 +2,6 @@ import streamlit as st
 import requests
 import math
 
-def round(value, decimals):
-    return round(value, decimals)
-
 st.title("Maya Liquidity Auction ILP Calculator")
 
 st.markdown("""
