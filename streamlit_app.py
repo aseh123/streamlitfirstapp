@@ -51,11 +51,11 @@ if maya_address:
 
                 st.markdown(f"Num of $RUNE you added in LA: {round(rune_before_la, 2)}")
                 st.markdown(f"Your profit at the start of LA is ${round(profit_before_la, 2)}")
-
+                
                 pred_rune = st.number_input("Predicted $RUNE Value:", value=3.00, min_value=0.0, step=0.01)
-	        pred_cacao = st.number_input("Predicted $CACAO Value:", value=0.14173, min_value=0.0, step=0.00001)
-		pred_apy = st.number_input("Predicted number of days to withdraw:", value=50, min_value=50, step=1)
-	        if pred_rune and pred_cacao and pred_apy:
+                pred_cacao = st.number_input("Predicted $CACAO Value:", value=0.14173, min_value=0.0, step=0.00001)
+                pred_apy = st.number_input("Predicted number of days to withdraw:", value=50, min_value=50, step=1)
+                if pred_rune and pred_cacao and pred_apy:
                         K = runefull * cacaofull
                         rt = pred_rune / pred_cacao
                         qp_rune = math.sqrt(K / rt)
@@ -98,7 +98,8 @@ if maya_address:
                             if pred_apy > 150:
                                 pred_days = 150
                             else:
-                            pred_days = pred_apy
+                                pred_days = pred_apy
+                            
                             days_covered = (pred_days - 50)
                             ILP_covered = -i_loss * days_covered / 100
                             st.markdown("This is $rune overperformance case, considers 100 days for full ILP")
@@ -112,6 +113,8 @@ if maya_address:
                             st.markdown(f"After ILP covered, You will have {round(total_cacao, 2)} Cacao")
                             st.markdown("Note: All these are based on assumptions, such as no withdrawal/deposit of funds from the LP position, and do not consider earned fees. This is still a work in progress - Beta Stage.")
                         else:
-                        st.markdown("No ILP coverage is needed in this scenario.")
-                        st.markdown("Note: All these are based on assumptions, such as no withdrawal/deposit of funds from the LP position, and do not consider earned fees. This is still a work in progress - Beta Stage.")
-
+                            st.markdown("No ILP coverage is needed in this scenario.")
+                            st.markdown("Note: All these are based on assumptions, such as no withdrawal/deposit of funds from the LP position, and do not consider earned fees. This is still a work in progress - Beta Stage.")
+                            
+                        
+                        
